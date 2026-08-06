@@ -1,0 +1,132 @@
+:host {
+  display: block;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 1rem;
+  padding-bottom: 1.75rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 1.4rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), transparent);
+  opacity: 0.45;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-item__marker {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 1.15rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+  z-index: 1;
+}
+
+.timeline-item__card {
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius);
+}
+
+.timeline-item__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.timeline-item__role-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.timeline-item__role {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.timeline-item__company,
+.timeline-item__dates,
+.timeline-item__summary {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+}
+
+.timeline-item__dates {
+  font-size: 0.875rem;
+}
+
+.timeline-item__summary {
+  margin-top: 0.85rem;
+}
+
+.timeline-item__toggle {
+  border: 1px solid var(--border);
+  background: var(--primary-soft);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.timeline-item__toggle:hover {
+  border-color: var(--border-strong);
+  background: var(--accent-soft);
+}
+
+.timeline-item__details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  animation: details-in 0.35s ease;
+}
+
+.timeline-item__details h4 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+}
+
+.timeline-item__details ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--text-muted);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.timeline-item__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+@keyframes details-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

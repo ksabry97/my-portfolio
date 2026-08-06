@@ -1,0 +1,20 @@
+<section class="section featured-projects" appRevealOnScroll>
+  <div class="container">
+    <div class="featured-projects__header">
+      <app-section-title
+        eyebrow="Projects"
+        title="Featured work"
+        subtitle="Selected products spanning fintech portals, design systems, and enterprise CRM."
+      />
+      <app-button href="/projects" label="All projects" variant="secondary" />
+    </div>
+
+    @if (featured$ | async; as projects) {
+      <div class="featured-projects__grid">
+        @for (project of projects; track project.id) {
+          <app-project-card [project]="project" />
+        }
+      </div>
+    }
+  </div>
+</section>

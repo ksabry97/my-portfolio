@@ -1,0 +1,24 @@
+<button
+  type="button"
+  class="app-theme-toggle"
+  [attr.aria-label]="
+    themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+  "
+  (click)="toggle()"
+>
+  @if (themeService.theme() === 'dark') {
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4.22 5.64a1 1 0 0 1 1.42 0l.7.7A1 1 0 0 1 4.92 7.76l-.7-.7a1 1 0 0 1 0-1.42Zm14.14 14.14a1 1 0 0 1 0-1.42l.7-.7a1 1 0 1 1 1.42 1.42l-.7.7a1 1 0 0 1-1.42 0ZM3 13a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2H3Zm17 0a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2h-1ZM4.22 18.36a1 1 0 0 1 0-1.42l.7-.7a1 1 0 1 1 1.42 1.42l-.7.7a1 1 0 0 1-1.42 0Zm14.14-14.14a1 1 0 0 1 0 1.42l-.7.7A1 1 0 1 1 16.24 4.92l.7-.7a1 1 0 0 1 1.42 0Z"
+      />
+    </svg>
+  } @else {
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M21 14.05A8.5 8.5 0 0 1 9.95 3 7 7 0 1 0 21 14.05Z"
+      />
+    </svg>
+  }
+</button>

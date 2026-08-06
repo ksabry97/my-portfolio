@@ -1,0 +1,96 @@
+<div class="page contact" @fadeIn>
+  <section class="section">
+    <div class="container contact__layout">
+      <div>
+        <app-section-title
+          eyebrow="Contact"
+          title="Let’s talk"
+          subtitle="Share a role, project, or collaboration idea — I’ll get back as soon as I can."
+        />
+
+        @if (profile$ | async; as profile) {
+          <div class="contact__info glass">
+            <a class="contact__info-item" [href]="'mailto:' + profile.email">
+              <span>Email</span>
+              <strong>{{ profile.email }}</strong>
+            </a>
+            <div class="contact__info-item">
+              <span>Location</span>
+              <strong>{{ profile.location }}</strong>
+            </div>
+            <div class="contact__info-item">
+              <span>Availability</span>
+              <strong>{{ profile.availability }}</strong>
+            </div>
+            <div class="contact__info-item">
+              <span>Calendar</span>
+              <strong>Placeholder — book a call soon</strong>
+            </div>
+
+            @if (social$ | async; as links) {
+              <app-social-icons [links]="links" />
+            }
+          </div>
+        }
+      </div>
+
+      <div class="contact__form-wrap glass" @fadeSlideUp>
+        @if (submitted()) {
+          <div class="contact__success">
+            <h2>Message queued</h2>
+            <p class="text-muted">
+              Thanks for reaching out. This demo form simulates a successful submit without a backend.
+            </p>
+            <app-button
+              label="Send another"
+              variant="primary"
+              (clicked)="sendAnother()"
+            />
+          </div>
+        } @else {
+          <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+            <label>
+              <span>Name</span>
+              <input type="text" formControlName="name" autocomplete="name" />
+              @if (controlInvalid('name')) {
+                <small>Please enter your name.</small>
+              }
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input type="email" formControlName="email" autocomplete="email" />
+              @if (controlInvalid('email')) {
+                <small>Enter a valid email address.</small>
+              }
+            </label>
+
+            <label>
+              <span>Subject</span>
+              <input type="text" formControlName="subject" />
+              @if (controlInvalid('subject')) {
+                <small>Subject is required.</small>
+              }
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea rows="6" formControlName="message"></textarea>
+              @if (controlInvalid('message')) {
+                <small>Message should be at least 10 characters.</small>
+              }
+            </label>
+
+            <app-button
+              type="submit"
+              variant="primary"
+              size="lg"
+              [disabled]="submitting()"
+              [label]="submitting() ? 'Sending…' : 'Send message'"
+            />
+          </form>
+        }
+      </div>
+    </div>
+  </section>
+</div>

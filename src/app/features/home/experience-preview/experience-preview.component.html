@@ -1,0 +1,20 @@
+<section class="section experience-preview" appRevealOnScroll>
+  <div class="container">
+    <div class="experience-preview__header">
+      <app-section-title
+        eyebrow="Experience"
+        title="Recent roles"
+        subtitle="A snapshot of recent frontend engineering work across enterprise products."
+      />
+      <app-button href="/experience" label="Full timeline" variant="secondary" />
+    </div>
+
+    @if (latest$ | async; as items) {
+      <div class="experience-preview__list">
+        @for (item of items; track item.id; let i = $index) {
+          <app-timeline-item [experience]="item" [expandedByDefault]="i === 0" />
+        }
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,63 @@
+<div class="page about" @fadeIn>
+  <section class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="About"
+        title="Frontend engineer for enterprise-grade products"
+        subtitle="From fintech portals to shared UI libraries — clarity, performance, and maintainability."
+      />
+
+      @if (profile$ | async; as profile) {
+        <div class="about__intro glass" appRevealOnScroll>
+          <p>{{ profile.summary }}</p>
+        </div>
+
+        <div class="about__grid">
+          <article class="about__block glass" appRevealOnScroll>
+            <h3>Journey</h3>
+            <p>
+              I moved from engineering foundations into frontend product work, shipping modular
+              Angular systems for CRM and fintech platforms. Today I focus on shared UI libraries,
+              architecture patterns, and high-quality delivery at Paysky.
+            </p>
+            @if (experience$ | async; as experience) {
+              <ul class="about__journey">
+                @for (item of experience; track item.id) {
+                  <li>
+                    <strong>{{ item.role }}</strong>
+                    <span>{{ item.company }}</span>
+                  </li>
+                }
+              </ul>
+            }
+          </article>
+
+          <article class="about__block glass" appRevealOnScroll>
+            <h3>Core strengths</h3>
+            <ul>
+              @for (strength of strengths; track strength) {
+                <li>{{ strength }}</li>
+              }
+            </ul>
+          </article>
+
+          <article class="about__block glass" appRevealOnScroll>
+            <h3>Philosophy</h3>
+            <p>{{ profile.philosophy }}</p>
+          </article>
+        </div>
+
+        @if (stats$ | async; as stats) {
+          <div class="about__stats" appRevealOnScroll>
+            @for (stat of stats; track stat.label) {
+              <article class="about__stat glass">
+                <p class="about__stat-value">{{ stat.value }}</p>
+                <p class="about__stat-label">{{ stat.label }}</p>
+              </article>
+            }
+          </div>
+        }
+      }
+    </div>
+  </section>
+</div>

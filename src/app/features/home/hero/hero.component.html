@@ -1,0 +1,51 @@
+<section class="hero" @fadeSlideUp>
+  @if (profile$ | async; as profile) {
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="container hero__content">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Senior Frontend Engineer</p>
+        <h1 class="hero__name gradient-text">{{ profile.name }}</h1>
+        <p class="hero__role">
+          <span class="hero__typed">{{ typedText() }}</span><span class="hero__cursor" aria-hidden="true"></span>
+        </p>
+        <p class="hero__tagline">{{ profile.tagline }}</p>
+
+        <div class="hero__badges">
+          <app-badge [text]="profile.location" tone="accent" />
+          <app-badge [text]="profile.availability" tone="success" />
+        </div>
+
+        <div class="hero__actions">
+          <app-button
+            [href]="profile.resumeUrl"
+            label="Download Resume"
+            variant="primary"
+            size="lg"
+            target="_blank"
+          />
+          <app-button href="/projects" label="View Projects" variant="secondary" size="lg" />
+          <app-button href="/contact" label="Contact Me" variant="ghost" size="lg" />
+        </div>
+
+        @if (social$ | async; as links) {
+          <app-social-icons [links]="links" />
+        }
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__photo-frame glass">
+          <img
+            [ngSrc]="profile.photo"
+            [alt]="profile.name"
+            width="420"
+            height="420"
+            priority
+            class="hero__photo"
+          />
+        </div>
+      </div>
+    </div>
+  }
+</section>

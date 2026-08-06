@@ -1,0 +1,42 @@
+<article class="project-card glass">
+  <a class="project-card__media" [routerLink]="['/projects', project().slug]">
+    <img
+      [src]="project().coverImage"
+      [alt]="project().title + ' cover'"
+      width="640"
+      height="400"
+      loading="lazy"
+      class="project-card__cover"
+    />
+    <span class="project-card__category">{{ project().category }}</span>
+  </a>
+
+  <div class="project-card__body">
+    <h3 class="project-card__title">
+      <a [routerLink]="['/projects', project().slug]">{{ project().title }}</a>
+    </h3>
+    <p class="project-card__summary">{{ project().summary }}</p>
+
+    <div class="project-card__tags">
+      @for (tech of project().technologies.slice(0, 4); track tech) {
+        <app-tag [label]="tech" />
+      }
+    </div>
+
+    <div class="project-card__links">
+      <a class="project-card__link" [routerLink]="['/projects', project().slug]">
+        Case study
+      </a>
+      @if (project().links.live; as live) {
+        <a class="project-card__link" [href]="live" target="_blank" rel="noopener noreferrer">
+          Live
+        </a>
+      }
+      @if (project().links.github; as github) {
+        <a class="project-card__link" [href]="github" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      }
+    </div>
+  </div>
+</article>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none" role="img" aria-label="QR Switch Portal cover">
+  <rect width="800" height="500" fill="#0c0c0f"/>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g1)"/>
+  <rect x="80" y="70" width="280" height="280" rx="24" stroke="#6366f1" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="110" y="100" width="90" height="90" rx="10" fill="#6366f1" fill-opacity=".25" stroke="#818cf8" stroke-width="1.5"/>
+  <rect x="240" y="100" width="90" height="90" rx="10" fill="#06b6d4" fill-opacity=".18" stroke="#22d3ee" stroke-width="1.5"/>
+  <rect x="110" y="230" width="90" height="90" rx="10" fill="#06b6d4" fill-opacity=".18" stroke="#22d3ee" stroke-width="1.5"/>
+  <rect x="240" y="230" width="40" height="40" rx="6" fill="#6366f1" fill-opacity=".4"/>
+  <rect x="290" y="230" width="40" height="40" rx="6" stroke="#6366f1" stroke-opacity=".6"/>
+  <rect x="240" y="280" width="40" height="40" rx="6" stroke="#06b6d4" stroke-opacity=".6"/>
+  <rect x="290" y="280" width="40" height="40" rx="6" fill="#06b6d4" fill-opacity=".35"/>
+  <circle cx="560" cy="180" r="90" stroke="#06b6d4" stroke-opacity=".4" stroke-width="2"/>
+  <circle cx="560" cy="180" r="52" stroke="#6366f1" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M480 340h160M500 370h120M520 400h80" stroke="#a1a1aa" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="700" cy="420" r="48" fill="#6366f1" fill-opacity=".15" stroke="#6366f1" stroke-opacity=".5"/>
+  <path d="M684 420h32M700 404v32" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+</svg>

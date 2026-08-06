@@ -1,0 +1,67 @@
+<header class="app-navbar" [class.app-navbar--open]="menuOpen()">
+  <div class="app-navbar__inner">
+    <a class="app-navbar__brand" routerLink="/" (click)="closeMenu()" aria-label="Home">
+      <span class="app-navbar__logo" aria-hidden="true">KS</span>
+      <span class="app-navbar__name">Khaled Sabry</span>
+    </a>
+
+    <nav class="app-navbar__nav" aria-label="Primary">
+      <ul class="app-navbar__list">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              class="app-navbar__link"
+              [routerLink]="link.path"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="app-navbar__actions">
+      <app-theme-toggle />
+      <button
+        type="button"
+        class="app-navbar__burger"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Toggle menu"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-nav"
+    class="app-navbar__drawer"
+    [class.is-open]="menuOpen()"
+    [attr.aria-hidden]="!menuOpen()"
+  >
+    <nav aria-label="Mobile">
+      <ul class="app-navbar__drawer-list">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              class="app-navbar__drawer-link"
+              [routerLink]="link.path"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

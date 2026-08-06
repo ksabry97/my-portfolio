@@ -1,0 +1,109 @@
+.resume__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.resume__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.resume__section {
+  margin-top: 2.5rem;
+}
+
+.resume__section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.resume__timeline {
+  max-width: 860px;
+}
+
+.resume__skill-group {
+  margin-bottom: 1.5rem;
+}
+
+.resume__skill-group h3 {
+  margin: 0 0 0.85rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.resume__skills-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .resume__skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1050px) {
+  .resume__skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.resume__bottom {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 800px) {
+  .resume__bottom {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .resume__bottom .resume__section {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+  }
+}
+
+.resume__edu h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.resume__edu p {
+  margin: 0.25rem 0;
+}
+
+.resume__certs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.resume__certs li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.resume__certs span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.resume__certs a {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}

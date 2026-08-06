@@ -1,0 +1,88 @@
+<div class="page resume" @fadeIn>
+  <section class="section">
+    <div class="container">
+      @if (profile$ | async; as profile) {
+        <div class="resume__header">
+          <app-section-title
+            eyebrow="Resume"
+            [title]="profile.name"
+            [subtitle]="profile.title + ' — ' + profile.tagline"
+          />
+          <app-button
+            [href]="profile.resumeUrl"
+            label="Download CV"
+            variant="primary"
+            size="lg"
+            target="_blank"
+          />
+        </div>
+
+        <div class="resume__meta glass">
+          <span>{{ profile.location }}</span>
+          <span>{{ profile.email }}</span>
+          <span>{{ profile.availability }}</span>
+        </div>
+      }
+
+      <section class="resume__section">
+        <h2>Experience</h2>
+        @if (experience$ | async; as items) {
+          <div class="resume__timeline">
+            @for (item of items; track item.id; let i = $index) {
+              <app-timeline-item [experience]="item" [expandedByDefault]="i === 0" />
+            }
+          </div>
+        }
+      </section>
+
+      <section class="resume__section">
+        <h2>Skills</h2>
+        @for (group of skillsGrouped() | keyvalue; track group.key) {
+          <div class="resume__skill-group">
+            <h3>{{ group.key }}</h3>
+            <div class="resume__skills-grid">
+              @for (skill of group.value; track skill.id) {
+                <app-skill-card [skill]="skill" />
+              }
+            </div>
+          </div>
+        }
+      </section>
+
+      <div class="resume__bottom">
+        <section class="resume__section glass">
+          <h2>Education</h2>
+          @if (education$ | async; as education) {
+            @for (item of education; track item.id) {
+              <article class="resume__edu">
+                <h3>{{ item.degree }}</h3>
+                <p>{{ item.institution }}</p>
+                <p class="text-muted">
+                  {{ formatDateRange(item.startDate, item.endDate) }}
+                </p>
+                <p class="text-muted">{{ item.details }}</p>
+              </article>
+            }
+          }
+        </section>
+
+        <section class="resume__section glass">
+          <h2>Certificates</h2>
+          @if (certificates$ | async; as certificates) {
+            <ul class="resume__certs">
+              @for (cert of certificates; track cert.id) {
+                <li>
+                  <strong>{{ cert.title }}</strong>
+                  <span>{{ cert.issuer }}@if (cert.year) { · {{ cert.year }} }</span>
+                  @if (cert.url) {
+                    <a [href]="cert.url" target="_blank" rel="noopener noreferrer">View</a>
+                  }
+                </li>
+              }
+            </ul>
+          }
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

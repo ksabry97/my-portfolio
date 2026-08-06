@@ -1,0 +1,99 @@
+<div class="page github" @fadeIn>
+  <section class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="GitHub"
+        title="Open source snapshot"
+        subtitle="Live profile and recently updated repositories from GitHub."
+      />
+
+      @if (vm$ | async; as vm) {
+        @if (vm.loading) {
+          <div class="github__loading">
+            <app-loading-skeleton width="100%" height="180px" />
+            <div class="github__skeleton-grid">
+              @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+                <app-loading-skeleton width="100%" height="140px" />
+              }
+            </div>
+          </div>
+        } @else if (vm.error || !vm.user) {
+          <div class="github__fallback glass">
+            <h2>GitHub is unavailable right now</h2>
+            <p class="text-muted">
+              Couldn’t load the profile for <strong>{{ vm.username }}</strong>. You can still visit
+              the profile directly.
+            </p>
+            <app-button
+              [href]="'https://github.com/' + vm.username"
+              label="Open GitHub"
+              variant="primary"
+              target="_blank"
+            />
+          </div>
+        } @else {
+          <article class="github__profile glass">
+            <img
+              [src]="vm.user.avatar_url"
+              [alt]="vm.user.name || vm.user.login"
+              width="96"
+              height="96"
+              class="github__avatar"
+            />
+            <div class="github__profile-body">
+              <h2>{{ vm.user.name || vm.user.login }}</h2>
+              <p class="text-muted">@{{ vm.user.login }}</p>
+              @if (vm.user.bio) {
+                <p>{{ vm.user.bio }}</p>
+              }
+              <div class="github__stats">
+                <span>{{ vm.user.public_repos }} repos</span>
+                <span>{{ vm.user.followers }} followers</span>
+                <span>{{ vm.user.following }} following</span>
+                @if (vm.user.location) {
+                  <span>{{ vm.user.location }}</span>
+                }
+              </div>
+              <app-button
+                [href]="vm.user.html_url"
+                label="View profile"
+                variant="secondary"
+                target="_blank"
+              />
+            </div>
+          </article>
+
+          <div class="github__repos">
+            @for (repo of vm.repos; track repo.id) {
+              <article class="github__repo glass">
+                <h3>
+                  <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer">
+                    {{ repo.name }}
+                  </a>
+                </h3>
+                <p class="text-muted">{{ repo.description || 'No description provided.' }}</p>
+                <div class="github__repo-meta">
+                  @if (repo.language) {
+                    <app-tag [label]="repo.language" />
+                  }
+                  <span>★ {{ repo.stargazers_count }}</span>
+                  <span>⑂ {{ repo.forks_count }}</span>
+                  <span>Updated {{ repo.updated_at | date: 'mediumDate' }}</span>
+                </div>
+                @if (repo.topics.length) {
+                  <div class="github__topics">
+                    @for (topic of repo.topics.slice(0, 4); track topic) {
+                      <app-tag [label]="topic" />
+                    }
+                  </div>
+                }
+              </article>
+            } @empty {
+              <p class="github__empty glass text-muted">No public repositories found.</p>
+            }
+          </div>
+        }
+      }
+    </div>
+  </section>
+</div>

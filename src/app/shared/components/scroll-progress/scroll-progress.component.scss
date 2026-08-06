@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.app-scroll-progress {
+  height: 3px;
+  width: 100%;
+  background: color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.app-scroll-progress__bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 50%, transparent);
+  transition: width 80ms linear;
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-scroll-progress__bar {
+    transition: none;
+  }
+}

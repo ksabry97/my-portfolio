@@ -1,0 +1,197 @@
+[
+  {
+    "id": "qr-switch-portal",
+    "title": "QR Switch Portal",
+    "slug": "qr-switch-portal",
+    "category": "Fintech",
+    "featured": true,
+    "summary": "Fintech portal built from scratch with real-time transaction monitoring, encryption, authentication, and dynamic permissions.",
+    "description": "A secure fintech portal delivering real-time transaction visibility and role-based access control. Built end-to-end with a focus on performance, security, and operational reliability.",
+    "coverImage": "assets/images/projects/qr-switch.svg",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "SignalR",
+      "RxJS",
+      "SCSS",
+      "JWT"
+    ],
+    "highlights": [
+      "Built from scratch",
+      "Real-time transaction monitoring",
+      "Encryption & secure authentication",
+      "Dynamic permissions"
+    ],
+    "challenges": [
+      "Delivering live transaction updates without compromising security.",
+      "Modeling dynamic permissions across operational roles."
+    ],
+    "architecture": [
+      "Standalone Angular feature modules",
+      "SignalR for real-time streams",
+      "Secure auth with encrypted payloads",
+      "Permission-driven UI rendering"
+    ],
+    "features": [
+      "Live transaction monitoring",
+      "Role-based access control",
+      "Secure authentication flows",
+      "Operational dashboards"
+    ],
+    "lessons": [
+      "Early permission modeling reduces late-stage UI rework.",
+      "Real-time UX needs clear loading and reconnect states."
+    ],
+    "links": {
+      "github": null,
+      "live": null,
+      "caseStudy": "/projects/qr-switch-portal"
+    }
+  },
+  {
+    "id": "atm-vas-portal",
+    "title": "ATM VAS Portal",
+    "slug": "atm-vas-portal",
+    "category": "Fintech",
+    "featured": true,
+    "summary": "Modular ATM value-added services portal with user management, roles, permissions, and reusable components.",
+    "description": "Enterprise portal for ATM value-added services with a modular architecture, strong access control, and a reusable component layer for faster feature delivery.",
+    "coverImage": "assets/images/projects/atm-vas.svg",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "RxJS",
+      "SCSS",
+      "REST APIs"
+    ],
+    "highlights": [
+      "Built from scratch",
+      "Modular architecture",
+      "User & role management",
+      "Reusable component system"
+    ],
+    "challenges": [
+      "Scaling permission management across modules.",
+      "Keeping UI consistency while shipping quickly."
+    ],
+    "architecture": [
+      "Feature-based modular Angular structure",
+      "Shared reusable UI layer",
+      "Centralized role and permission handling"
+    ],
+    "features": [
+      "User management",
+      "Role & permission management",
+      "Reusable admin components",
+      "Modular service workflows"
+    ],
+    "lessons": [
+      "Shared components pay off fastest in admin-heavy products.",
+      "Clear module boundaries simplify onboarding."
+    ],
+    "links": {
+      "github": null,
+      "live": null,
+      "caseStudy": "/projects/atm-vas-portal"
+    }
+  },
+  {
+    "id": "shared-ui-library",
+    "title": "Shared UI Library",
+    "slug": "shared-ui-library",
+    "category": "Design System",
+    "featured": true,
+    "summary": "Enterprise Angular component library with standalone components, shared across multiple products.",
+    "description": "A design-system-oriented Angular UI library that standardizes patterns, reduces duplication, and accelerates delivery across enterprise applications.",
+    "coverImage": "assets/images/projects/ui-library.svg",
+    "technologies": [
+      "Angular",
+      "Standalone Components",
+      "TypeScript",
+      "SCSS",
+      "Storybook",
+      "Nx"
+    ],
+    "highlights": [
+      "Enterprise component library",
+      "Standalone Angular components",
+      "Shared across applications",
+      "Patterns and documentation"
+    ],
+    "challenges": [
+      "Balancing flexibility with design consistency.",
+      "Documenting APIs so teams adopt components confidently."
+    ],
+    "architecture": [
+      "Standalone reusable components",
+      "Token-driven styling",
+      "Documented usage patterns",
+      "Cross-product consumption"
+    ],
+    "features": [
+      "Configurable UI primitives",
+      "Consistent interaction patterns",
+      "Documentation for adoption",
+      "Performance-minded APIs"
+    ],
+    "lessons": [
+      "Good docs are as important as good components.",
+      "Constraints in the API improve consistency."
+    ],
+    "links": {
+      "github": null,
+      "live": null,
+      "caseStudy": "/projects/shared-ui-library"
+    }
+  },
+  {
+    "id": "modeer360",
+    "title": "Modeer360 CRM",
+    "slug": "modeer360",
+    "category": "Enterprise",
+    "featured": true,
+    "summary": "Enterprise CRM platform modules for contacts, inventory, deals, campaigns, chat, and calls.",
+    "description": "Contributed to Modeer360 by building reusable dashboards, tables, filtering systems, data visualization, and real-time communication with SignalR.",
+    "coverImage": "assets/images/projects/crm.svg",
+    "technologies": [
+      "Angular",
+      "React",
+      "TypeScript",
+      "RxJS",
+      "SignalR",
+      "PrimeNG",
+      "REST APIs"
+    ],
+    "highlights": [
+      "Contacts, Inventory, Deals, Campaigns",
+      "Chat & Calls modules",
+      "Reusable dashboards and tables",
+      "SignalR real-time communication"
+    ],
+    "challenges": [
+      "Unifying messaging channels into one chat experience.",
+      "Building extensible tables and filters for diverse CRM data."
+    ],
+    "architecture": [
+      "Reusable data table and filter frameworks",
+      "Dynamic forms replacing legacy form solutions",
+      "SignalR-powered real-time chat",
+      "Omnichannel messaging integrations"
+    ],
+    "features": [
+      "CRM module suite",
+      "Advanced filtering",
+      "Real-time chat",
+      "WhatsApp, Facebook, Instagram messaging"
+    ],
+    "lessons": [
+      "Extensible table/filter abstractions unlock many features.",
+      "Cross-functional collaboration is critical for enterprise CRM delivery."
+    ],
+    "links": {
+      "github": null,
+      "live": "https://modeer360.com/",
+      "caseStudy": "/projects/modeer360"
+    }
+  }
+]

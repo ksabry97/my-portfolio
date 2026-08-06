@@ -1,0 +1,130 @@
+[
+  {
+    "id": "angular",
+    "name": "Angular",
+    "category": "Frontend",
+    "level": 92,
+    "years": 3,
+    "description": "Enterprise apps with Angular 17–20, standalone components, SSR-ready patterns."
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "category": "Frontend",
+    "level": 85,
+    "years": 2,
+    "description": "Building component-driven product UIs with React, hooks, and modern TypeScript patterns alongside Angular ecosystems."
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "category": "Frontend",
+    "level": 90,
+    "years": 3,
+    "description": "Strict typing, maintainable domain models, and scalable frontend codebases."
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "category": "Frontend",
+    "level": 88,
+    "years": 3,
+    "description": "Modern ES6+ patterns for performant browser applications."
+  },
+  {
+    "id": "html-css",
+    "name": "HTML5 & SCSS",
+    "category": "Frontend",
+    "level": 90,
+    "years": 3,
+    "description": "Semantic markup, accessible UI, and maintainable design tokens."
+  },
+  {
+    "id": "tailwind",
+    "name": "Tailwind CSS",
+    "category": "Frontend",
+    "level": 75,
+    "years": 2,
+    "description": "Utility-first styling for rapid, consistent product interfaces."
+  },
+  {
+    "id": "rxjs",
+    "name": "RxJS",
+    "category": "State Management",
+    "level": 88,
+    "years": 3,
+    "description": "Reactive streams for API orchestration and real-time UI flows."
+  },
+  {
+    "id": "signals",
+    "name": "Signals",
+    "category": "State Management",
+    "level": 85,
+    "years": 1,
+    "description": "Fine-grained reactivity and modern Angular state patterns."
+  },
+  {
+    "id": "ngrx",
+    "name": "NgRx",
+    "category": "State Management",
+    "level": 72,
+    "years": 2,
+    "description": "Predictable state management for complex enterprise screens."
+  },
+  {
+    "id": "rest",
+    "name": "REST APIs",
+    "category": "Backend Knowledge",
+    "level": 85,
+    "years": 3,
+    "description": "Secure API integration and resilient client-side data layers."
+  },
+  {
+    "id": "signalr",
+    "name": "SignalR / WebSockets",
+    "category": "Backend Knowledge",
+    "level": 82,
+    "years": 2,
+    "description": "Real-time chat, live dashboards, and reconnect-aware UX."
+  },
+  {
+    "id": "auth",
+    "name": "JWT / OAuth / RBAC",
+    "category": "Security",
+    "level": 80,
+    "years": 3,
+    "description": "Secure authentication, authorization, and permission-driven UI."
+  },
+  {
+    "id": "nx",
+    "name": "Nx Monorepo",
+    "category": "Architecture",
+    "level": 78,
+    "years": 2,
+    "description": "Scalable monorepo structure for shared libraries and apps."
+  },
+  {
+    "id": "design-systems",
+    "name": "Design Systems",
+    "category": "Architecture",
+    "level": 88,
+    "years": 2,
+    "description": "Reusable UI libraries, documentation, and cross-product consistency."
+  },
+  {
+    "id": "storybook",
+    "name": "Storybook",
+    "category": "Architecture",
+    "level": 75,
+    "years": 2,
+    "description": "Component isolation, documentation, and design collaboration."
+  },
+  {
+    "id": "git",
+    "name": "Git / Azure DevOps",
+    "category": "Tools",
+    "level": 85,
+    "years": 3,
+    "description": "Branching, code reviews, CI collaboration, and release hygiene."
+  }
+]

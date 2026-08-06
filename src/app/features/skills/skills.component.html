@@ -1,0 +1,37 @@
+<div class="page skills" @fadeIn>
+  <section class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="Skills"
+        title="Tools and craft"
+        subtitle="Filter by category to explore strengths across frontend, architecture, and delivery."
+      />
+
+      <div class="skills__filters" appRevealOnScroll>
+        @for (category of categories(); track category) {
+          <button
+            type="button"
+            class="skills__filter"
+            [class.skills__filter--active]="selectedCategory() === category"
+            (click)="selectCategory(category)"
+          >
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <div class="skills__groups" @staggerFade>
+        @for (group of filteredGrouped() | keyvalue; track group.key) {
+          <section class="skills__group" appRevealOnScroll>
+            <h3>{{ group.key }}</h3>
+            <div class="skills__grid">
+              @for (skill of group.value; track skill.id) {
+                <app-skill-card [skill]="skill" />
+              }
+            </div>
+          </section>
+        }
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "Khaled Sabry",
+  "title": "Senior Frontend Engineer",
+  "roles": [
+    "Senior Frontend Engineer",
+    "Angular Expert",
+    "React Developer",
+    "Frontend Architect",
+    "Problem Solver"
+  ],
+  "tagline": "Designing scalable enterprise UIs with Angular, React, and TypeScript.",
+  "summary": "Senior Frontend Engineer with 3+ years of experience designing and building scalable enterprise web applications using Angular, React, and TypeScript. Proven track record of delivering applications from the ground up, architecting reusable component libraries, and developing maintainable frontend solutions for fintech and enterprise platforms.",
+  "philosophy": "Build high-quality, performant user experiences, improve developer productivity through reusable solutions, and collaborate across teams to deliver business impact.",
+  "email": "isabryex@gmail.com",
+  "phone": "01030341872",
+  "location": "Cairo, Egypt",
+  "availability": "Open to opportunities",
+  "photo": "assets/images/profile.jpg",
+  "resumeUrl": "assets/resume/khaledSabry-CV.pdf",
+  "githubUsername": "ksabry97",
+  "stats": {
+    "yearsExperience": 3,
+    "projectsDelivered": 4,
+    "technologies": 20,
+    "companies": 2
+  }
+}

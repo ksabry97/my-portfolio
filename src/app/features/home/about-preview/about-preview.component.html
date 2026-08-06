@@ -1,0 +1,32 @@
+<section class="section about-preview" appRevealOnScroll>
+  <div class="container">
+    <app-section-title
+      eyebrow="About"
+      title="Engineering clarity into every interface"
+      subtitle="A concise look at how I approach product-quality frontend systems."
+    />
+
+    @if (profile$ | async; as profile) {
+      <div class="about-preview__grid">
+        <div class="about-preview__copy glass">
+          <p>{{ profile.summary }}</p>
+          <p class="about-preview__philosophy">
+            <strong>Philosophy</strong>
+            {{ profile.philosophy }}
+          </p>
+        </div>
+
+        @if (stats$ | async; as stats) {
+          <div class="about-preview__stats">
+            @for (stat of stats; track stat.label) {
+              <article class="about-preview__stat glass">
+                <p class="about-preview__value">{{ stat.value }}</p>
+                <p class="about-preview__label">{{ stat.label }}</p>
+              </article>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

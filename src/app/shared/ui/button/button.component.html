@@ -1,0 +1,55 @@
+@if (href(); as link) {
+  @if (isInternal()) {
+    <a
+      class="app-button"
+      [class.app-button--primary]="variant() === 'primary'"
+      [class.app-button--secondary]="variant() === 'secondary'"
+      [class.app-button--ghost]="variant() === 'ghost'"
+      [class.app-button--sm]="size() === 'sm'"
+      [class.app-button--md]="size() === 'md'"
+      [class.app-button--lg]="size() === 'lg'"
+      [class.app-button--disabled]="disabled()"
+      [routerLink]="disabled() ? null : link"
+      [attr.aria-disabled]="disabled() || null"
+      [attr.aria-label]="ariaLabel() || label() || null"
+      (click)="onClick($event)"
+    >
+      <span class="app-button__label">{{ label() }}</span>
+    </a>
+  } @else {
+    <a
+      class="app-button"
+      [class.app-button--primary]="variant() === 'primary'"
+      [class.app-button--secondary]="variant() === 'secondary'"
+      [class.app-button--ghost]="variant() === 'ghost'"
+      [class.app-button--sm]="size() === 'sm'"
+      [class.app-button--md]="size() === 'md'"
+      [class.app-button--lg]="size() === 'lg'"
+      [class.app-button--disabled]="disabled()"
+      [attr.href]="disabled() ? null : link"
+      [attr.aria-disabled]="disabled() || null"
+      [attr.aria-label]="ariaLabel() || label() || null"
+      [attr.target]="target()"
+      [attr.rel]="rel() ?? (target() === '_blank' ? 'noopener noreferrer' : null)"
+      (click)="onClick($event)"
+    >
+      <span class="app-button__label">{{ label() }}</span>
+    </a>
+  }
+} @else {
+  <button
+    class="app-button"
+    [class.app-button--primary]="variant() === 'primary'"
+    [class.app-button--secondary]="variant() === 'secondary'"
+    [class.app-button--ghost]="variant() === 'ghost'"
+    [class.app-button--sm]="size() === 'sm'"
+    [class.app-button--md]="size() === 'md'"
+    [class.app-button--lg]="size() === 'lg'"
+    [attr.type]="type()"
+    [disabled]="disabled()"
+    [attr.aria-label]="ariaLabel() || label() || null"
+    (click)="onClick($event)"
+  >
+    <span class="app-button__label">{{ label() }}</span>
+  </button>
+}

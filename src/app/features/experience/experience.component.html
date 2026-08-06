@@ -1,0 +1,19 @@
+<div class="page experience" @fadeIn>
+  <section class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="Experience"
+        title="Career timeline"
+        subtitle="Expand each role for achievements, technologies, and delivery highlights."
+      />
+
+      @if (experience$ | async; as items) {
+        <div class="experience__timeline" appRevealOnScroll>
+          @for (item of items; track item.id; let i = $index) {
+            <app-timeline-item [experience]="item" [expandedByDefault]="i === 0" />
+          }
+        </div>
+      }
+    </div>
+  </section>
+</div>

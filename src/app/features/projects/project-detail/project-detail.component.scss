@@ -1,0 +1,128 @@
+.project-detail__hero {
+  padding: clamp(2.5rem, 6vw, 4rem) 0 1rem;
+}
+
+.project-detail__hero-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .project-detail__hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.project-detail__eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail__hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.03em;
+}
+
+.project-detail__summary {
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 38rem;
+}
+
+.project-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.15rem;
+}
+
+.project-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.project-detail__cover {
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 0.65rem;
+}
+
+.project-detail__cover img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+.project-detail__sections {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .project-detail__sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-detail__block {
+  padding: 1.35rem;
+  border-radius: var(--radius);
+}
+
+.project-detail__block h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.project-detail__block p,
+.project-detail__block li {
+  color: var(--text-muted);
+}
+
+.project-detail__block ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.project-detail__related h2 {
+  margin: 0 0 1.25rem;
+}
+
+.project-detail__related-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .project-detail__related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-detail__missing {
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 520px;
+}
+
+.project-detail__missing h1 {
+  margin: 0 0 0.5rem;
+}
+
+.project-detail__missing a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}

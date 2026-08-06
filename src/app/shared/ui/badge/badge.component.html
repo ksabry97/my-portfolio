@@ -1,0 +1,10 @@
+<span
+  class="app-badge"
+  [class.app-badge--default]="tone() === 'default'"
+  [class.app-badge--success]="tone() === 'success'"
+  [class.app-badge--warning]="tone() === 'warning'"
+  [class.app-badge--danger]="tone() === 'danger'"
+  [class.app-badge--accent]="tone() === 'accent'"
+>
+  {{ text() }}
+</span>

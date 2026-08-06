@@ -1,0 +1,203 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-navbar {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: var(--shadow, 0 8px 32px rgb(0 0 0 / 0.2));
+}
+
+.app-navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+}
+
+.app-navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.app-navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: calc(var(--radius, 0.75rem) * 0.85);
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in srgb, var(--primary) 55%, var(--accent))
+  );
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+.app-navbar__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-navbar__nav {
+  display: none;
+}
+
+.app-navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-navbar__link {
+  display: inline-flex;
+  padding: 0.45rem 0.7rem;
+  border-radius: calc(var(--radius, 0.75rem) * 0.75);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+
+  &:hover,
+  &.is-active {
+    color: var(--text);
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+  }
+
+  &.is-active {
+    color: var(--primary);
+  }
+}
+
+.app-navbar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-navbar__burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 0.75rem);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--text);
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease;
+  }
+}
+
+.app-navbar--open .app-navbar__burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.app-navbar--open .app-navbar__burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.app-navbar--open .app-navbar__burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.app-navbar__drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 260ms ease;
+
+  &.is-open {
+    grid-template-rows: 1fr;
+    border-top: 1px solid var(--border);
+  }
+
+  > nav {
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+.app-navbar__drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.75rem 1.25rem 1.1rem;
+  list-style: none;
+}
+
+.app-navbar__drawer-link {
+  display: block;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius, 0.75rem);
+  color: var(--text-muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+
+  &:hover,
+  &.is-active {
+    color: var(--text);
+    background: color-mix(in srgb, var(--surface) 85%, transparent);
+  }
+
+  &.is-active {
+    color: var(--primary);
+  }
+}
+
+@media (min-width: 960px) {
+  .app-navbar__nav {
+    display: block;
+  }
+
+  .app-navbar__burger,
+  .app-navbar__drawer {
+    display: none;
+  }
+
+  .app-navbar__name {
+    max-width: none;
+  }
+}

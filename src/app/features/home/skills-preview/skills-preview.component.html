@@ -1,0 +1,27 @@
+<section class="section skills-preview" appRevealOnScroll>
+  <div class="container">
+    <div class="skills-preview__header">
+      <app-section-title
+        eyebrow="Skills"
+        title="Core capabilities"
+        subtitle="A sample of top skills across frontend, architecture, and tooling."
+      />
+      <app-button href="/skills" label="All skills" variant="secondary" />
+    </div>
+
+    @if (grouped$ | async; as groups) {
+      <div class="skills-preview__groups">
+        @for (group of groups | keyvalue; track group.key) {
+          <div class="skills-preview__group">
+            <h3>{{ group.key }}</h3>
+            <div class="skills-preview__grid">
+              @for (skill of group.value; track skill.id) {
+                <app-skill-card [skill]="skill" />
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "paysky",
+    "company": "Paysky",
+    "role": "Senior Frontend Engineer",
+    "location": "Egypt",
+    "startDate": "2025-07",
+    "endDate": null,
+    "current": true,
+    "summary": "Designing and maintaining shared Angular UI libraries and frontend architecture for enterprise fintech products.",
+    "achievements": [
+      "Designed and maintained a shared Angular UI component library using standalone components to standardize UI development across enterprise applications.",
+      "Built reusable, configurable UI components that reduced duplication and improved development consistency.",
+      "Established frontend development patterns and component documentation to improve maintainability and accelerate feature delivery.",
+      "Collaborated with cross-functional teams to integrate shared components into multiple products while maintaining design consistency and performance.",
+      "Contributed to frontend architecture decisions with a focus on scalability, reusability, and long-term maintainability."
+    ],
+    "technologies": [
+      "Angular",
+      "React",
+      "TypeScript",
+      "Standalone Components",
+      "RxJS",
+      "SCSS",
+      "Git"
+    ]
+  },
+  {
+    "id": "a-technologies",
+    "company": "A Technologies",
+    "role": "Frontend Engineer",
+    "location": "Egypt",
+    "startDate": "2023-07",
+    "endDate": "2025-07",
+    "current": false,
+    "summary": "Led reusable UI systems, real-time chat, and enterprise CRM modules for Modeer360.",
+    "achievements": [
+      "Led the design and development of reusable UI components adopted across multiple CRM modules.",
+      "Built a reusable data table supporting sorting, pagination, drag-and-drop, and extensible configurations.",
+      "Developed an advanced filtering framework enabling dynamic queries and flexible data exploration.",
+      "Architected and implemented a real-time chat platform using SignalR.",
+      "Integrated WhatsApp, Facebook, and Instagram messaging into a unified communication interface.",
+      "Improved frontend maintainability by replacing legacy form solutions with a custom dynamic form framework.",
+      "Collaborated closely with backend, QA, and product teams to deliver scalable enterprise features."
+    ],
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "RxJS",
+      "SignalR",
+      "PrimeNG",
+      "REST APIs"
+    ]
+  }
+]

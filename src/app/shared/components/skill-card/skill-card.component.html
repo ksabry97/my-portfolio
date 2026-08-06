@@ -1,0 +1,20 @@
+<article class="skill-card glass">
+  <div class="skill-card__header">
+    <h3 class="skill-card__name">{{ skill().name }}</h3>
+    <span class="skill-card__level">{{ skill().level }}%</span>
+  </div>
+
+  <div class="skill-card__meta">
+    <span>{{ skill().category }}</span>
+    <span>{{ skill().years }}+ yrs</span>
+  </div>
+
+  <div class="skill-card__bar" role="progressbar" [attr.aria-valuenow]="skill().level" aria-valuemin="0" aria-valuemax="100">
+    <span
+      class="skill-card__fill"
+      [style.width.%]="animated() ? skill().level : 0"
+    ></span>
+  </div>
+
+  <p class="skill-card__desc">{{ skill().description }}</p>
+</article>

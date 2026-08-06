@@ -1,0 +1,31 @@
+<footer class="app-footer">
+  <div class="app-footer__inner">
+    <div class="app-footer__brand">
+      <a class="app-footer__logo" routerLink="/" aria-label="Home">KS</a>
+      <p class="app-footer__tagline">Building premium web experiences.</p>
+    </div>
+
+    <div class="app-footer__col">
+      <h3 class="app-footer__heading">Quick links</h3>
+      <ul class="app-footer__links">
+        @for (link of links; track link.path) {
+          <li>
+            <a [routerLink]="link.path">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="app-footer__col">
+      <h3 class="app-footer__heading">Connect</h3>
+      <app-social-icons [links]="socials()" />
+      <button type="button" class="app-footer__top" (click)="scrollToTop()">
+        Back to top
+      </button>
+    </div>
+  </div>
+
+  <div class="app-footer__bottom">
+    <p>&copy; {{ year }} Khaled Sabry. All rights reserved.</p>
+  </div>
+</footer>

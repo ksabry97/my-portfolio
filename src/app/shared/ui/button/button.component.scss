@@ -1,0 +1,131 @@
+:host {
+  display: inline-flex;
+}
+
+.app-button {
+  --btn-bg: var(--primary);
+  --btn-color: #fff;
+  --btn-border: transparent;
+  --btn-hover: color-mix(in srgb, var(--primary) 85%, white);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius, 0.75rem);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow, 0 8px 24px rgb(0 0 0 / 0.25));
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover:not(:disabled):not(.app-button--disabled) {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled):not(.app-button--disabled) {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, var(--primary));
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &.app-button--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
+}
+
+.app-button--primary {
+  --btn-bg: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in srgb, var(--primary) 70%, var(--accent))
+  );
+  --btn-hover: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--primary) 90%, white),
+    color-mix(in srgb, var(--accent) 80%, white)
+  );
+  background: var(--btn-bg);
+}
+
+.app-button--secondary {
+  --btn-bg: var(--surface);
+  --btn-color: var(--text);
+  --btn-border: var(--border-strong);
+  --btn-hover: var(--surface-hover);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+
+.app-button--ghost {
+  --btn-bg: transparent;
+  --btn-color: var(--text);
+  --btn-border: var(--border-strong);
+  --btn-hover: var(--surface-hover);
+  box-shadow: none;
+}
+
+.app-button__label {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.app-button--sm {
+  min-height: 2rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8125rem;
+}
+
+.app-button--md {
+  min-height: 2.5rem;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9375rem;
+}
+
+.app-button--lg {
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.app-button__ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.35);
+  pointer-events: none;
+  transform: scale(0);
+  animation: app-button-ripple 560ms ease-out forwards;
+  z-index: 0;
+}
+
+@keyframes app-button-ripple {
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}

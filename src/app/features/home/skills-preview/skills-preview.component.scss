@@ -1,0 +1,30 @@
+.skills-preview__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.skills-preview__groups {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.skills-preview__group h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.skills-preview__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .skills-preview__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

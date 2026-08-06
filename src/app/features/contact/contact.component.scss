@@ -1,0 +1,77 @@
+.contact__layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .contact__layout {
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: start;
+  }
+}
+
+.contact__info {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  display: grid;
+  gap: 1rem;
+}
+
+.contact__info-item {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.contact__info-item span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.contact__info-item strong {
+  font-size: 0.98rem;
+}
+
+.contact__form-wrap {
+  padding: 1.35rem;
+  border-radius: var(--radius);
+}
+
+.contact__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact__form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.85rem;
+  resize: vertical;
+}
+
+.contact__form small {
+  color: var(--danger);
+  font-size: 0.78rem;
+}
+
+.contact__success {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  min-height: 280px;
+}
+
+.contact__success h2 {
+  margin: 0;
+}

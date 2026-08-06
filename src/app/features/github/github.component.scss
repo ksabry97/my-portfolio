@@ -1,0 +1,131 @@
+.github__loading {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.github__skeleton-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .github__skeleton-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .github__skeleton-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.github__fallback,
+.github__profile {
+  margin-top: 1.75rem;
+  padding: 1.35rem;
+  border-radius: var(--radius);
+}
+
+.github__fallback {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 560px;
+}
+
+.github__fallback h2,
+.github__profile h2 {
+  margin: 0;
+}
+
+.github__profile {
+  display: grid;
+  gap: 1.15rem;
+  align-items: start;
+}
+
+@media (min-width: 700px) {
+  .github__profile {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.github__avatar {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+.github__profile-body {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+}
+
+.github__profile-body p {
+  margin: 0;
+}
+
+.github__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.github__repos {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 800px) {
+  .github__repos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .github__repos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.github__repo {
+  padding: 1.15rem;
+  border-radius: var(--radius);
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.github__repo h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.github__repo h3 a:hover {
+  color: var(--accent);
+}
+
+.github__repo p {
+  margin: 0;
+  min-height: 2.8em;
+}
+
+.github__repo-meta,
+.github__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.github__empty {
+  grid-column: 1 / -1;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+}

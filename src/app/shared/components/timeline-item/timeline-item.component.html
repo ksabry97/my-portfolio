@@ -1,0 +1,46 @@
+<article class="timeline-item" [class.timeline-item--expanded]="expanded()">
+  <div class="timeline-item__marker" aria-hidden="true"></div>
+
+  <div class="timeline-item__card glass">
+    <header class="timeline-item__header">
+      <div>
+        <div class="timeline-item__role-row">
+          <h3 class="timeline-item__role">{{ experience().role }}</h3>
+          @if (experience().current) {
+            <app-badge text="Current" tone="success" />
+          }
+        </div>
+        <p class="timeline-item__company">{{ experience().company }} · {{ experience().location }}</p>
+        <p class="timeline-item__dates">{{ dateRange() }}</p>
+      </div>
+
+      <button
+        type="button"
+        class="timeline-item__toggle"
+        [attr.aria-expanded]="expanded()"
+        (click)="toggle()"
+      >
+        {{ expanded() ? 'Hide details' : 'Show details' }}
+      </button>
+    </header>
+
+    <p class="timeline-item__summary">{{ experience().summary }}</p>
+
+    @if (expanded()) {
+      <div class="timeline-item__details">
+        <h4>Achievements</h4>
+        <ul>
+          @for (item of experience().achievements; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+
+        <div class="timeline-item__tech">
+          @for (tech of experience().technologies; track tech) {
+            <app-tag [label]="tech" />
+          }
+        </div>
+      </div>
+    }
+  </div>
+</article>

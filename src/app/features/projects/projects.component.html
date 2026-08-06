@@ -1,0 +1,51 @@
+<div class="page projects" @fadeIn>
+  <section class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="Projects"
+        title="Selected case studies"
+        subtitle="Search, filter, and explore product work across fintech and enterprise platforms."
+      />
+
+      <div class="projects__controls glass" appRevealOnScroll>
+        <label class="projects__field">
+          <span class="sr-only">Search projects</span>
+          <input
+            type="search"
+            placeholder="Search by title, tech, or summary…"
+            [ngModel]="search()"
+            (ngModelChange)="onSearch($event)"
+          />
+        </label>
+
+        <label class="projects__field">
+          <span>Category</span>
+          <select [ngModel]="category()" (ngModelChange)="onCategory($event)">
+            @for (cat of categories(); track cat) {
+              <option [value]="cat">{{ cat }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="projects__field">
+          <span>Sort</span>
+          <select [ngModel]="sort()" (ngModelChange)="onSort($event)">
+            <option value="featured">Featured first</option>
+            <option value="title">Title</option>
+            <option value="category">Category</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="projects__count text-muted">{{ filtered().length }} project(s)</p>
+
+      <div class="projects__grid">
+        @for (project of filtered(); track project.id) {
+          <app-project-card [project]="project" />
+        } @empty {
+          <p class="projects__empty glass">No projects match your filters.</p>
+        }
+      </div>
+    </div>
+  </section>
+</div>
