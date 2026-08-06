@@ -5,3 +5,11 @@
 .home {
   padding-top: 0;
 }
+
+.home-defer-slot {
+  min-height: 40vh;
+}
+
+.home-defer-slot--short {
+  min-height: 20vh;
+}

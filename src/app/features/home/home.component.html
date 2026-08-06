@@ -1,8 +1,33 @@
 <div class="page home">
   <app-hero />
-  <app-about-preview />
-  <app-featured-projects />
-  <app-experience-preview />
-  <app-skills-preview />
-  <app-contact-cta />
+
+  @defer (on viewport; prefetch on idle) {
+    <app-about-preview />
+  } @placeholder {
+    <div class="home-defer-slot" aria-hidden="true"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-featured-projects />
+  } @placeholder {
+    <div class="home-defer-slot" aria-hidden="true"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-experience-preview />
+  } @placeholder {
+    <div class="home-defer-slot" aria-hidden="true"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-skills-preview />
+  } @placeholder {
+    <div class="home-defer-slot" aria-hidden="true"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-contact-cta />
+  } @placeholder {
+    <div class="home-defer-slot home-defer-slot--short" aria-hidden="true"></div>
+  }
 </div>

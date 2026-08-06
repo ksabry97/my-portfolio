@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
-  NgZone,
   PLATFORM_ID,
   afterNextRender,
   inject,
@@ -34,7 +33,6 @@ import { ButtonComponent } from '../../../shared/ui/button/button.component';
 export class HeroComponent {
   private readonly data = inject(PortfolioDataService);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly zone = inject(NgZone);
   private readonly platformId = inject(PLATFORM_ID);
 
   readonly profile$ = this.data.getProfile();
@@ -45,6 +43,7 @@ export class HeroComponent {
   private roleIndex = 0;
   private charIndex = 0;
   private deleting = false;
+  private pauseTicks = 0;
 
   constructor() {
     afterNextRender(() => {
@@ -52,10 +51,15 @@ export class HeroComponent {
         return;
       }
 
-      this.zone.runOutsideAngular(() => {
-        const id = window.setInterval(() => this.tickTypewriter(), 70);
-        this.destroyRef.onDestroy(() => window.clearInterval(id));
-      });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        return;
+      }
+
+      // Keep the timer outside NgZone — do not call zone.run() on every tick
+      // (that was thrashing change detection on mobile).
+      const id = window.setInterval(() => this.tickTypewriter(), 90);
+      this.destroyRef.onDestroy(() => window.clearInterval(id));
     });
   }
 
@@ -65,28 +69,30 @@ export class HeroComponent {
       return;
     }
 
+    if (this.pauseTicks > 0) {
+      this.pauseTicks -= 1;
+      return;
+    }
+
     const current = roles[this.roleIndex % roles.length];
-    let nextText = this.typedText();
 
     if (!this.deleting) {
       this.charIndex += 1;
-      nextText = current.slice(0, this.charIndex);
+      this.typedText.set(current.slice(0, this.charIndex));
       if (this.charIndex >= current.length) {
         this.deleting = true;
-        this.charIndex = current.length + 18;
+        this.pauseTicks = 14;
       }
-    } else if (this.charIndex > current.length) {
-      this.charIndex -= 1;
       return;
-    } else {
-      this.charIndex -= 1;
-      nextText = current.slice(0, Math.max(this.charIndex, 0));
-      if (this.charIndex <= 0) {
-        this.deleting = false;
-        this.roleIndex = (this.roleIndex + 1) % roles.length;
-      }
     }
 
-    this.zone.run(() => this.typedText.set(nextText));
+    this.charIndex -= 1;
+    this.typedText.set(current.slice(0, Math.max(this.charIndex, 0)));
+
+    if (this.charIndex <= 0) {
+      this.deleting = false;
+      this.roleIndex = (this.roleIndex + 1) % roles.length;
+      this.pauseTicks = 4;
+    }
   }
 }

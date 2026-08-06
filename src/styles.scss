@@ -1,7 +1,5 @@
 @use './app/shared/directives/reveal-on-scroll';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 :root,
 [data-theme='dark'] {
   --bg: #09090b;
@@ -119,9 +117,38 @@ select {
 
 .glass {
   background: var(--glass);
-  backdrop-filter: blur(18px);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+}
+
+@media (min-width: 768px) {
+  .glass {
+    backdrop-filter: blur(18px);
+  }
+}
+
+@media (max-width: 767px) {
+  body::before {
+    background: var(--bg);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .surface {
