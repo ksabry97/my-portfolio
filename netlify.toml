@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist/portfolio/browser"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Prefer real prerendered files when they exist; otherwise hand off to Angular.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

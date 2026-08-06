@@ -1,0 +1,2 @@
+# SPA fallback — send unknown routes to Angular so the router can handle them
+/*    /index.html   200

@@ -54,9 +54,18 @@ src/app
 
 ## Deploy
 
+### Netlify (recommended for this repo)
+
+1. Build command: `npm run build`
+2. Publish directory: `dist/portfolio/browser`
+3. `netlify.toml` already includes the SPA redirect so routes like `/projects` work on refresh.
+
+Redeploy after pulling these changes. Hard refresh if the old 404 is cached.
+
+### Other
+
 - **SSR Node**: `npm run build` then `npm run serve:ssr:portfolio`
 - **Docker**: see `Dockerfile` + `docker-compose.yml`
-- **Static hosts** (Vercel/Netlify/Firebase): configure for Angular SSR or export accordingly
 
 ## Contact
 
